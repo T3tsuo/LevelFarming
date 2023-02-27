@@ -61,7 +61,3 @@ def go_to_cave():
     pydirectinput.PAUSE = 0.1
     # break
     time.sleep(random_breaks.input_break())
-
-time.sleep(2)
-leave_building()
-go_to_cave()
