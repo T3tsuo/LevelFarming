@@ -1,1 +1,1 @@
-python heal_return.py
+python main.py 6
