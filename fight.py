@@ -78,9 +78,9 @@ def in_battle():
         # go to second move
         pydirectinput.press('right')
         time.sleep(random_breaks.paying_attention_break())
-        # press surf (second move)
+        # press surf/earthquake (second move)
         pydirectinput.press('z')
-        print("Surf")
+        print("Earthquake/Surf")
         time.sleep(random_breaks.paying_attention_break())
         # select and attack the second pokemon
         which_to_attack()
