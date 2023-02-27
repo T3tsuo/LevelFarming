@@ -42,8 +42,8 @@ def starting_battle_break():
 
 
 def attack_break():
-    # timer between 20 and 25 seconds fighting again
-    return random() * 5 + 20
+    # timer between 25 and 30 seconds fighting again
+    return random() * 5 + 25
 
 
 def to_nurse():
