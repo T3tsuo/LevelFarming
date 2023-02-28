@@ -16,6 +16,9 @@ victory_road = Image.open(requests.get("https://raw.githubusercontent.com/"
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
                                            "T3tsuo/XPLevel/main/location/inside_building.png", stream=True).raw)
 
+goldbat = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                           "T3tsuo/XPLevel/main/battle_logs/goldbat.png", stream=True).raw)
+
 
 def heal_up():
     at_nurse = False
@@ -66,7 +69,7 @@ def which_to_attack():
     time.sleep(random_breaks.paying_attention_break())
 
 
-def in_battle():
+def kill_all():
     dead = False
     # break from 1.5 - 2 seconds
     time.sleep(random_breaks.inside_cave())
@@ -93,6 +96,25 @@ def in_battle():
                 # then they are dead
                 dead = True
                 break
+
+
+def run_away():
+    pydirectinput.press('right')
+    time.sleep(random_breaks.paying_attention_break())
+    pydirectinput.press('down')
+    time.sleep(random_breaks.paying_attention_break())
+    pydirectinput.press('z')
+    print('Run away')
+    time.sleep(random_breaks.paying_attention_break())
+    time.sleep(random_breaks.run_away_break())
+
+
+def in_battle():
+    while True:
+        if pyautogui.locateOnScreen(goldbat, confidence=0.8) is not None:
+            return run_away()
+        else:
+            return kill_all()
 
 
 def run(x):
