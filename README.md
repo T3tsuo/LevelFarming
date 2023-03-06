@@ -1,4 +1,4 @@
-# XPLevel Victory Road (Sinnoh)
+# LevelFarming Victory Road (Sinnoh)
 
 ## Python Configuration:
 * Tested with Python 3.10.8
