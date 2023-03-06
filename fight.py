@@ -8,16 +8,16 @@ import random_breaks
 
 
 inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/XPLevel/main/location/inside_cave.png", stream=True).raw)
+                                           "T3tsuo/LevelFarming/main/location/inside_cave.png", stream=True).raw)
 
 victory_road = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/XPLevel/main/location/victory_road.png", stream=True).raw)
+                                           "T3tsuo/LevelFarming/main/location/victory_road.png", stream=True).raw)
 
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/XPLevel/main/location/inside_building.png", stream=True).raw)
+                                           "T3tsuo/LevelFarming/main/location/inside_building.png", stream=True).raw)
 
 goldbat = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/XPLevel/main/battle_logs/goldbat.png", stream=True).raw)
+                                           "T3tsuo/LevelFarming/main/battle_logs/goldbat.png", stream=True).raw)
 
 
 def heal_up():
@@ -28,6 +28,7 @@ def heal_up():
         if pyautogui.locateOnScreen(inside_building, confidence=0.8) is not None:
             # then set flag to true, so we can talk to the nurse
             at_nurse = True
+            print("At Nurse")
             time.sleep(0.5)
         else:
             time.sleep(0.5)
@@ -58,7 +59,6 @@ def teleport_away():
             print("Teleport")
             left = True
             time.sleep(random_breaks.paying_attention_break())
-            print("At Nurse")
             time.sleep(random_breaks.to_nurse())
 
 
@@ -112,6 +112,7 @@ def run_away():
 def in_battle():
     while True:
         if pyautogui.locateOnScreen(goldbat, confidence=0.8) is not None:
+            print("Run Away")
             return run_away()
         else:
             return kill_all()

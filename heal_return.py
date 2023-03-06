@@ -7,17 +7,16 @@ from PIL import Image
 import random_breaks
 
 outside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/XPLevel/main/location/outside_building.png", stream=True).raw)
+                                           "T3tsuo/LevelFarming/main/location/outside_building.png", stream=True).raw)
 
 inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/XPLevel/main/location/inside_cave.png", stream=True).raw)
+                                           "T3tsuo/LevelFarming/main/location/inside_cave.png", stream=True).raw)
 
 
 def leave_building():
     pydirectinput.keyDown("down")
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")
-    print("Left building")
     # while cannot find outside, keep on waiting
     is_outside = False
     while is_outside is False:
@@ -25,6 +24,7 @@ def leave_building():
         if pyautogui.locateOnScreen(outside_building, confidence=0.8) is not None:
             # then we are outside
             is_outside = True
+            print("Left building")
             time.sleep(0.5)
         else:
             time.sleep(0.5)
