@@ -10,14 +10,11 @@ import random_breaks
 inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
                                            "T3tsuo/LevelFarming/main/location/inside_cave.png", stream=True).raw)
 
-victory_road = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/LevelFarming/main/location/victory_road.png", stream=True).raw)
-
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
                                            "T3tsuo/LevelFarming/main/location/inside_building.png", stream=True).raw)
 
-goldbat = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/LevelFarming/main/battle_logs/goldbat.png", stream=True).raw)
+tranquill = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                           "T3tsuo/LevelFarming/main/battle_logs/tranquill.png", stream=True).raw)
 
 
 def heal_up():
@@ -44,22 +41,11 @@ def heal_up():
 
 
 def teleport_away():
-    # use dig
-    pydirectinput.press("6")
-    print("Dig")
+    # press teleport
+    pydirectinput.press('5')
+    print("Teleport")
     time.sleep(random_breaks.paying_attention_break())
-    left = False
-    while left is False:
-        # once left the cave
-        if pyautogui.locateOnScreen(victory_road, confidence=0.8) is not None:
-            # wait for screen to change
-            time.sleep(random_breaks.paying_attention_break())
-            # press teleport
-            pydirectinput.press('5')
-            print("Teleport")
-            left = True
-            time.sleep(random_breaks.paying_attention_break())
-            time.sleep(random_breaks.to_nurse())
+    time.sleep(random_breaks.to_nurse())
 
 
 def which_to_attack():
@@ -111,7 +97,7 @@ def run_away():
 
 def in_battle():
     while True:
-        if pyautogui.locateOnScreen(goldbat, confidence=0.8) is not None:
+        if pyautogui.locateOnScreen(tranquill, confidence=0.8) is not None:
             print("Run Away")
             return run_away()
         else:
@@ -120,7 +106,6 @@ def in_battle():
 
 def run(x):
     for i in range(x):
-        # wait for program to switch to game window
         time.sleep(random_breaks.run_away_break())
         # use sweet scent
         pydirectinput.press('4')
