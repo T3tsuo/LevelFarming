@@ -80,6 +80,7 @@ def kill_all():
             # if battle is done
             if pyautogui.locateOnScreen(battle_done, confidence=0.8) is not None:
                 # then they are dead
+                print("Battle Done")
                 dead = True
                 break
 
