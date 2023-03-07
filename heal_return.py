@@ -36,7 +36,7 @@ def go_to_grass():
     pydirectinput.keyDown("left")
     time.sleep(random_breaks.go_to_grass_break())
     pydirectinput.keyUp("left")
-    print("There")
+    print("At Grass")
     time.sleep(random_breaks.paying_attention_break())
     pydirectinput.PAUSE = 0.03
     pydirectinput.press("up")
