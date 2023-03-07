@@ -7,8 +7,8 @@ from PIL import Image
 import random_breaks
 
 
-inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/LevelFarming/main/location/inside_cave.png", stream=True).raw)
+battle_done = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                           "T3tsuo/LevelFarming/main/location/battle_done.png", stream=True).raw)
 
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
                                            "T3tsuo/LevelFarming/main/location/inside_building.png", stream=True).raw)
@@ -78,7 +78,7 @@ def kill_all():
         end_time = time.time() + seconds
         while time.time() < end_time:
             # if battle is done
-            if pyautogui.locateOnScreen(inside_cave, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(battle_done, confidence=0.8) is not None:
                 # then they are dead
                 dead = True
                 break

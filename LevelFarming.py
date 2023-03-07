@@ -2,7 +2,7 @@ import sys
 import os
 import time
 
-# import fight
+import fight
 import heal_return
 
 # this program grabs items and then fly's to go restore pokemon pp
@@ -19,4 +19,4 @@ time.sleep(2)
 # loop forever
 while True:
     heal_return.run()
-    # fight.run(x)
+    fight.run(x)
