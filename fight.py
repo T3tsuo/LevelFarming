@@ -16,6 +16,9 @@ inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
 tranquill = Image.open(requests.get("https://raw.githubusercontent.com/"
                                            "T3tsuo/LevelFarming/main/battle_logs/tranquill.png", stream=True).raw)
 
+combee = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                           "T3tsuo/LevelFarming/main/battle_logs/combee.png", stream=True).raw)
+
 
 def heal_up():
     at_nurse = False
@@ -98,7 +101,8 @@ def run_away():
 
 def in_battle():
     while True:
-        if pyautogui.locateOnScreen(tranquill, confidence=0.8) is not None:
+        if pyautogui.locateOnScreen(tranquill, confidence=0.8) is not None or \
+                pyautogui.locateOnScreen(combee, confidence=0.8) is not None:
             print("Run Away")
             return run_away()
         else:
