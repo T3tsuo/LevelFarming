@@ -57,8 +57,8 @@ def which_to_attack():
 
 def kill_all():
     dead = False
-    # break from 1.5 - 2 seconds
-    time.sleep(random_breaks.inside_cave())
+    # break from 1.8 - 1.9 seconds
+    time.sleep(random_breaks.leave_building())
     while not dead:
         # press fight
         pydirectinput.press('z')
